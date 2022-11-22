@@ -1,4 +1,3 @@
-from operator import indexOf
 ### CONTAINS
 
 
@@ -22,34 +21,27 @@ def reverse(arr):
 ### indexof
 def indexof(arr, element):
 
-    for i in range(-1, len(arr) - 1, 1):
-        print(arr[i])
+    for i in range(len(arr)):
         if arr[i] == element:
             return i
-        else:
-         return False
-
+    return -1
+        
 
 ### SWAP
-def swap(arr, element1, element2):
-    pos1 = indexOf(arr, element1)
-    pos2 = indexOf(arr, element2)
-
-    get = arr[pos1], arr[pos2]
-    
-    arr[pos2], arr[pos1] = get
+def swap(arr, pos1, pos2):
+    arr[pos1], arr[pos2] = arr[pos2], arr[pos1]
     return arr
 
 ### INDEX OF MIN
+
+
+
 def indexofmin(arr):
-    min = arr[0]
-    for i in arr:
-        if i < min:
-            min = i
-    return min
+    for i in range(1, len(arr)):
+        if i < arr[0]:
+            arr[0] = arr[i]
+    return i
 
-
-        
 
      
 
@@ -57,7 +49,7 @@ def indexofmin(arr):
         
         
 
-numarray = [21, 34, 12, 9]
+numarray = [21, 34, 12, 9, 3, 4, 6, 2]
 coolest_array = ["snow", "ice", "blizzard", "santa", "hi"]
 functionarray = ["contains", "indexof", "reverse", "swap", "indexofMin"]
 
@@ -68,6 +60,11 @@ while loop:
         print(i, end = ' ')
 
     print("\n\nSelect an option:")
+    print("1: contains")
+    print("2: indexof")
+    print("3: reverse")
+    print("4: swap")
+    print("5: indexofmin")
 
     runfun = int(input("which function would you like to run (1-...)")) - 1
     if runfun == 0:
@@ -86,8 +83,7 @@ while loop:
         for i in coolest_array:
             print(i, end = ' ')
         print("----")
-        print(indexof(coolest_array, "santa"))
-        
+        print(indexof(coolest_array, "hi"))
     elif runfun == 2:
         ### REVERSE FUNCTION
         print("Function 3")
@@ -103,13 +99,14 @@ while loop:
     elif runfun == 3:
         ### SWAP FUNCTION
         print("Function 4")
-        ele1 = input("What is the first element that you'd like to swap")
-        ele2 = input("What is the secdond element that you'd like to swap")
+        ele1 = int(input("What is the first element that you'd like to swap"))
+        ele2 = int(input("What is the secdond element that you'd like to swap"))
         print(swap(coolest_array, ele1, ele2))
     elif runfun == 4:
         ### INDEXOFMIN FUNCTION
         print("Function 5")
-        print(indexofmin(numarray))
+        w = indexofmin(numarray)
+        print(w)
     elif runfun == 5:
         ## QUIT
         print("Quit")
