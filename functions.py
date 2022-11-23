@@ -37,10 +37,11 @@ def swap(arr, pos1, pos2):
 
 
 def indexofmin(arr):
+    minInd = 0
     for i in range(1, len(arr)):
-        if i < arr[0]:
-            arr[0] = arr[i]
-    return i
+        if arr[i] < arr[minInd]:
+            minInd = i
+    return minInd
 
 
      
@@ -49,7 +50,7 @@ def indexofmin(arr):
         
         
 
-numarray = [21, 34, 12, 9, 3, 4, 6, 2]
+numarray = [21, 34, 12, 0, 2]
 coolest_array = ["snow", "ice", "blizzard", "santa", "hi"]
 functionarray = ["contains", "indexof", "reverse", "swap", "indexofMin"]
 
@@ -66,8 +67,8 @@ while loop:
     print("4: swap")
     print("5: indexofmin")
 
-    runfun = int(input("which function would you like to run (1-...)")) - 1
-    if runfun == 0:
+    runfun = int(input("which function would you like to run (1-...)"))
+    if runfun == 1:
         ### CONTAINS FUNCTION
         print("Function 1")
         for i in coolest_array:
@@ -77,14 +78,14 @@ while loop:
             print("Merry christmans")
         else:
             print("not so very merry")
-    elif runfun == 1:
+    elif runfun == 2:
         ### INDEXOF FUNCTION
         print("Function 2")
         for i in coolest_array:
             print(i, end = ' ')
         print("----")
         print(indexof(coolest_array, "hi"))
-    elif runfun == 2:
+    elif runfun == 3:
         ### REVERSE FUNCTION
         print("Function 3")
 
@@ -96,18 +97,18 @@ while loop:
         print(coolest_array)
     
         print("done")
-    elif runfun == 3:
+    elif runfun == 4:
         ### SWAP FUNCTION
         print("Function 4")
         ele1 = int(input("What is the first element that you'd like to swap"))
         ele2 = int(input("What is the secdond element that you'd like to swap"))
         print(swap(coolest_array, ele1, ele2))
-    elif runfun == 4:
+    elif runfun == 5:
         ### INDEXOFMIN FUNCTION
-        print("Function 5")
+        print("Function 5, indexof min")
         w = indexofmin(numarray)
         print(w)
-    elif runfun == 5:
+    elif runfun == 6:
         ## QUIT
         print("Quit")
         loop =  False
